@@ -1,0 +1,13 @@
+# The main pipeline for asset_bundle_project
+resources:
+  pipelines:
+    asset_bundle_project_pipeline:
+      name: asset_bundle_project_pipeline
+      catalog: innovationday2024
+      target: asset_bundle_project_${bundle.environment}
+      libraries:
+        - notebook:
+            path: ../src/dlt_pipeline.ipynb
+
+      configuration:
+        bundle.sourcePath: ${workspace.file_path}/src
